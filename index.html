@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>John Oliyide Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Header -->
@@ -24,19 +25,34 @@
     <h2>Welcome</h2>
     <p>Hello, I’m John Oliyide — a passionate developer building modern web experiences for small businesses and startups.</p>
     <img src="images/john-formal.jpeg" alt="John Oliyide" />
+    <div id="qr">
+      <h3>Quick Access</h3>
+      <img src="images/portfolio-qr.png" alt="QR code to portfolio" />
+    </div>
   </section>
 
   <!-- About Section -->
   <section id="about">
     <h2>About Me</h2>
     <p>
-      I'm a front-end developer with a strong foundation in HTML, CSS, and JavaScript, and a growing expertise in responsive design and user experience. I thrive on turning ideas into sleek, functional websites that help brands stand out.
+      My name is John Oliyide, and I’ve always been driven by two things: technology and creativity. 
+      I started out building websites with HTML, CSS, and JavaScript, and over time I’ve grown into a developer 
+      who cares deeply about clean design, responsive layouts, and making digital experiences feel effortless.
     </p>
     <p>
-      With a background in computer science and hands-on experience in freelance projects, I’ve built everything from personal portfolios to e-commerce landing pages. I’m known for my attention to detail, clean code, and ability to collaborate across teams.
+      Today, I’m proud to be part of Apple, where I’m sharpening my skills in network security and working toward 
+      building a long-term career in tech innovation. I enjoy tackling challenges that push me to learn and grow, 
+      and I see every project as a chance to raise the bar.
     </p>
     <p>
-      Outside of coding, I enjoy mentoring new developers, exploring UI trends, and refining my craft through continuous learning.
+      Outside of coding, I’m a musician at heart. I play the drums and founded 
+      <strong>Johannu Records International</strong>, a record label in Nigeria that gives upcoming artists 
+      a platform to share their voices. Music keeps me grounded and reminds me that creativity comes in many forms.
+    </p>
+    <p>
+      Whether it’s writing code, producing music, or exploring new ideas in security, I bring passion, focus, 
+      and a drive to keep improving. This portfolio is just one way I’m sharing my journey — and I’m excited 
+      about where it’s headed next.
     </p>
   </section>
 
@@ -44,17 +60,20 @@
   <section id="projects">
     <h2>Projects</h2>
     <ul>
-      <li>
+      <li class="project-card">
         <strong>Portfolio Website</strong><br />
-        <a href="https://github.com/johannu1/JohnOliyide-Portfolio" target="_blank">
-          View on GitHub
-        </a>
+        <p>A responsive personal site showcasing my skills, resume, and contact form.</p>
+        <a href="https://github.com/johannu1/JohnOliyide-Portfolio" target="_blank">View on GitHub</a>
       </li>
-      <li>
-        <strong>Sample Web App</strong><br />
-        <a href="https://github.com/johannu1/sample-web-app" target="_blank">
-          View on GitHub
-        </a>
+      <li class="project-card">
+        <strong>Brand Strategy Proposal</strong><br />
+        <p>A professional branding document outlining design direction and tone for a startup.</p>
+        <a href="projects/Brand-Strategy.docx" download>Download Project</a>
+      </li>
+      <li class="project-card">
+        <strong>Landing Page Screenshot</strong><br />
+        <img src="images/landing-page-screenshot.jpg" alt="Landing Page Screenshot" class="project-thumb" />
+        <p>Mockup of a sleek landing page built with HTML/CSS for a local business.</p>
       </li>
     </ul>
   </section>
@@ -76,6 +95,16 @@
       <button type="submit">Send Message</button>
     </form>
   </section>
+
+  <!-- Chatbot Section -->
+  <div id="chatbot">
+    <button id="chat-toggle">Ask John</button>
+    <div id="chat-panel" class="hidden">
+      <div id="chat-log"></div>
+      <input id="chat-input" placeholder="Ask about skills, tools, projects..." />
+      <button id="chat-send">Send</button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
