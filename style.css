@@ -7,15 +7,15 @@
 
 /* Base Styles */
 body {
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: #f4f6f9;
-  color: #333;
+  font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #1c1c1c, #2e2e2e);
+  color: #e0e0e0;
   line-height: 1.6;
 }
 
 /* Header */
 header {
-  background: #222;
+  background: #111;
   color: #fff;
   padding: 1rem 2rem;
   display: flex;
@@ -24,10 +24,13 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 
 header h1 {
-  font-size: 1.5rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
 }
 
 nav {
@@ -36,9 +39,10 @@ nav {
 }
 
 nav a {
+  font-family: 'Oswald', sans-serif;
   color: #fff;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   transition: color 0.3s ease;
 }
 
@@ -60,7 +64,7 @@ nav a:hover {
   nav {
     flex-direction: column;
     display: none;
-    background: #222;
+    background: #111;
     padding: 1rem;
   }
   nav.open {
@@ -79,14 +83,17 @@ section {
 }
 
 section h2 {
+  font-family: 'Oswald', sans-serif;
   margin-bottom: 1rem;
-  color: #222;
+  color: #00bcd4;
   font-size: 2rem;
+  font-weight: 700;
 }
 
 section p {
-  margin-bottom: 1rem;
   font-size: 1.1rem;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 1rem;
 }
 
 /* Home Section */
@@ -96,11 +103,11 @@ section p {
 
 #home img {
   margin-top: 1rem;
-  width: 180px;       /* Fixed size for consistency */
-  height: auto;       /* Keeps proportions */
-  border-radius: 50%; /* Circular crop */
+  width: 180px;
+  height: auto;
+  border-radius: 50%;
   border: 4px solid #00bcd4;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -108,9 +115,9 @@ section p {
 
 /* About Section */
 #about {
-  background: #fff;
+  background: #1f1f1f;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
   padding: 2rem;
 }
 
@@ -121,10 +128,10 @@ section p {
 }
 
 .project-card {
-  background: #fff;
+  background: #2a2a2a;
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
   margin-bottom: 2rem;
   transition: transform 0.3s ease;
 }
@@ -161,6 +168,7 @@ section p {
   color: #fff;
   border-radius: 5px;
   text-decoration: none;
+  font-weight: 600;
   transition: background 0.3s ease;
 }
 
@@ -179,8 +187,11 @@ form input,
 form textarea,
 form button {
   padding: 0.75rem;
-  border: 1px solid #ccc;
+  border: 1px solid #555;
   border-radius: 5px;
+  background: #1c1c1c;
+  color: #e0e0e0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 form button {
@@ -188,6 +199,7 @@ form button {
   color: #fff;
   border: none;
   cursor: pointer;
+  font-weight: 600;
   transition: background 0.3s ease;
 }
 
