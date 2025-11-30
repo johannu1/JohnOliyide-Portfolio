@@ -17,10 +17,13 @@ body {
 header {
   background: #222;
   color: #fff;
-  padding: 1rem;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 header h1 {
@@ -57,6 +60,8 @@ nav a:hover {
   nav {
     flex-direction: column;
     display: none;
+    background: #222;
+    padding: 1rem;
   }
   nav.open {
     display: flex;
@@ -76,22 +81,94 @@ section {
 section h2 {
   margin-bottom: 1rem;
   color: #222;
+  font-size: 2rem;
 }
 
 section p {
   margin-bottom: 1rem;
+  font-size: 1.1rem;
 }
 
-/* Projects */
-ul {
+/* Home Section */
+#home {
+  text-align: center;
+}
+
+#home img {
+  margin-top: 1rem;
+  width: 180px;       /* Fixed size for consistency */
+  height: auto;       /* Keeps proportions */
+  border-radius: 50%; /* Circular crop */
+  border: 4px solid #00bcd4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* About Section */
+#about {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 2rem;
+}
+
+/* Projects Section */
+#projects ul {
   list-style: none;
+  padding: 0;
 }
 
-ul li {
-  margin-bottom: 1rem;
+.project-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
 }
 
-/* Contact Form */
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-thumb {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
+
+#projects a {
+  color: #00bcd4;
+  text-decoration: none;
+}
+
+#projects a:hover {
+  text-decoration: underline;
+}
+
+/* Resume Section */
+#resume {
+  text-align: center;
+}
+
+#resume a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+#resume a:hover {
+  background: #007c91;
+}
+
+/* Contact Section */
 form {
   display: flex;
   flex-direction: column;
