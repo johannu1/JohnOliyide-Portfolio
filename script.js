@@ -1,62 +1,97 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll("nav a").forEach(anchor => {
-  anchor.addEventListener("click", function(e) {
+// Navigation smooth scroll
+document.querySelectorAll("nav a").forEach(link => {
+  link.addEventListener("click", function(e) {
     e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    target.scrollIntoView({ behavior: "smooth" });
+    let section = document.querySelector(this.getAttribute("href"));
+    section.scrollIntoView({ behavior: "smooth" });
   });
 });
 
-// Mobile menu toggle (optional if you add a hamburger menu later)
-const nav = document.querySelector("nav");
-const toggleBtn = document.createElement("button");
-toggleBtn.textContent = "☰";
-toggleBtn.classList.add("menu-toggle");
-nav.prepend(toggleBtn);
+// Mobile menu toggle
+let nav = document.querySelector("nav");
+let menuButton = document.createElement("button");
+menuButton.textContent = "☰";
+menuButton.className = "menu-toggle";
+nav.prepend(menuButton);
 
-toggleBtn.addEventListener("click", () => {
+menuButton.addEventListener("click", function() {
   nav.classList.toggle("open");
 });
 
-// Contact form handler
-const form = document.querySelector("form");
-form.addEventListener("submit", (e) => {
+// Contact form simple handler
+let form = document.querySelector("form");
+form.addEventListener("submit", function(e) {
   e.preventDefault();
-
-  const name = form.querySelector("input[type='text']").value;
-  const email = form.querySelector("input[type='email']").value;
-  const message = form.querySelector("textarea").value;
+  let name = form.querySelector("input[type='text']").value;
+  let email = form.querySelector("input[type='email']").value;
+  let message = form.querySelector("textarea").value;
 
   if (name && email && message) {
-    alert(`Thank you, ${name}! Your message has been received. We'll reply to ${email} soon.`);
+    alert("Thanks " + name + "! I'll reply to " + email + " soon.");
     form.reset();
   } else {
-    alert("Please fill out all fields before submitting.");
+    alert("Please fill in all fields.");
   }
 });
 
-// Optional: Add a simple fade-in animation when sections come into view
-const sections = document.querySelectorAll("section");
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
+// Fade-in sections when scrolling
+let sections = document.querySelectorAll("section");
+let observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
     }
   });
 }, { threshold: 0.2 });
 
-sections.forEach(section => {
+sections.forEach(function(section) {
   section.classList.add("hidden");
   observer.observe(section);
 });
-/* Fade-in animation for sections */
-.hidden {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
 
-.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+// Chatbot logic (simple FAQ style)
+let faqs = [
+  { q: /skills/i, a: "I know HTML, CSS, and JavaScript." },
+  { q: /projects/i, a: "I made a portfolio site and some practice projects." },
+  { q: /resume/i, a: "You can download my resume from the Resume section." },
+  { q: /music/i, a: "I also play drums and started a record label in Nigeria." },
+  { q: /apple/i, a: "I work at Apple and want to learn more about network security." },
+  { q: /contact/i, a: "Use the contact form to send me a message." }
+];
+
+let chatToggle = document.getElementById("chat-toggle");
+let chatPanel = document.getElementById("chat-panel");
+let chatLog = document.getElementById("chat-log");
+let chatInput = document.getElementById("chat-input");
+let chatSend = document.getElementById("chat-send");
+
+chatToggle.addEventListener("click", function() {
+  chatPanel.classList.toggle("hidden");
+});
+
+chatSend.addEventListener("click", function() {
+  let msg = chatInput.value.trim();
+  if (!msg) return;
+
+  chatLog.innerHTML += "<p><strong>You:</strong> " + msg + "</p>";
+
+  let reply = "I’m not sure about that. Try asking about skills, projects, or resume.";
+  for (let i = 0; i < faqs.length; i++) {
+    if (faqs[i].q.test(msg)) {
+      reply = faqs[i].a;
+      break;
+    }
+  }
+
+  chatLog.innerHTML += "<p><strong>John:</strong> " + reply + "</p>";
+  chatLog.scrollTop = chatLog.scrollHeight;
+  chatInput.value = "";
+});
+
+// Send with Enter key
+chatInput.addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    chatSend.click();
+  }
+});
